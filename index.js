@@ -6,6 +6,12 @@ const fileOps = async () => {
     try{
             const data = await fsPromises.readFile(path.join(__dirname, 'files','start.txt'), 'utf-8');
             console.log(data);
+            let eliminaFile = await fsPromises.unlink(path.join(__dirname, 'files', 'start.txt'));
+            if( eliminaFile != false) {
+                console.log('eliminato');
+            } else {
+                console.log('non sono riuscito ad eliminare il file');
+            }
             await fsPromises.writeFile(path.join(__dirname, 'files','promiseStart.txt'), data);
             await fsPromises.appendFile(path.join(__dirname, 'files','promiseStart.txt'), '\n\n Piacere di iniziare un file!');
             await fsPromises.rename(path.join(__dirname, 'files','promiseStart.txt'), path.join(__dirname, 'files', 'promiseComplete.txt'));
