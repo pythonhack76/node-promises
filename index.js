@@ -26,6 +26,10 @@ fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Benvenuto nel nuovo fi
     if (err) throw err;
     console.log('write complete');
 })
+fs.appendFile(path.join(__dirname, 'files', 'reply.txt'), '\n\n il testo che voglio aggiungere CAZZO', (err) => {
+    if(err) throw err;
+    console.log('operazione COMPLETATA!');
+})
 
 
 //file di scrittura secondo
@@ -33,6 +37,10 @@ fs.writeFile(path.join(__dirname, 'files', 'node.txt'), 'Sei nel file NODE nel n
     if (err) throw err;
     console.log('aggiunta di file e contenuto... complete');
 })
+    fs.appendFile(path.join(__dirname, 'files', 'node.txt'), '\n\n Questo il nuovo testo.che sto inserendo', (err) => {
+        if(err) throw err;
+        console.log('Aggiunta effettuata');
+    })
 
 // gestione di errori 
 process.on('uncaughtException', err => {
